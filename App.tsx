@@ -28,8 +28,9 @@ export default function App() {
         title="Increment state in main method"
       />
       <Text>{state}</Text>
+      <Text>{subComponentState}</Text>
+      <Suffix options={options} handleClick={handleSubComponentClick} />
       {/*
-      <div>{subComponentState}</div>
       <div>
         <h2>Prefix</h2>
         <Suffix options={options} handleClick={handleSubComponentClick} />
@@ -59,8 +60,8 @@ const Suffix = memo(function suffix({
   console.log("Suffix rendered");
   return (
     <>
-      <button onClick={handleClick}>SubComponent state</button>
-      <div>Number: {num}</div>
+      <Button onPress={handleClick} title="SubComponent state" />
+      <Text>Number: {num}</Text>
     </>
   );
 });
