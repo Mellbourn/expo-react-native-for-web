@@ -30,11 +30,6 @@ export default function App() {
       <Text>{state}</Text>
       <Text>{subComponentState}</Text>
       <Suffix options={options} handleClick={handleSubComponentClick} />
-      {/*
-      <div>
-        <h2>Prefix</h2>
-        <Suffix options={options} handleClick={handleSubComponentClick} />
-      </div> */}
     </View>
   );
 }
