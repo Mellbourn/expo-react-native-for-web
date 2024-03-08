@@ -1,3 +1,6 @@
+require("dotenv").config({ path: "./.env.development" });
+const customer = process.env.CUSTOMER;
+
 module.exports = function (api) {
   api.cache(true);
   return {
@@ -13,7 +16,7 @@ module.exports = function (api) {
             // this works
             // constants: "./src/constants.customer1",
             // this works, but needs a path
-            "^@src/(.+)": ([, name]) => `./src/${name}.customer1`,
+            "^@src/(.+)": ([, name]) => `./src/${name}.${customer}`,
           },
         },
       ],
