@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { memo, useCallback, useMemo, useState } from "react";
 import { Suffix } from "./Suffix";
-import { customer } from "@src/constants";
+import { customer } from "./src/constants";
 
 export default function App() {
   const [state, setState] = useState(0);
