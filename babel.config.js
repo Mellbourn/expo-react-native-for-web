@@ -8,7 +8,10 @@ module.exports = function (api) {
         {
           // root: ["./src"],
           alias: {
-            "@src": "./src",
+            // this lets you import "@src/whatever" instead of "./src/whatever
+            //"@src": "./src",
+            // this works
+            constants: "./src/constants.customer1",
           },
         },
       ],
