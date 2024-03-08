@@ -11,7 +11,9 @@ module.exports = function (api) {
             // this lets you import "@src/whatever" instead of "./src/whatever
             //"@src": "./src",
             // this works
-            constants: "./src/constants.customer1",
+            // constants: "./src/constants.customer1",
+            // this works, but needs a path
+            "^@src/(.+)": ([, name]) => `./src/${name}.customer1`,
           },
         },
       ],
