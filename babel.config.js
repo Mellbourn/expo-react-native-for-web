@@ -1,6 +1,6 @@
+// dotenv is not needed, built into expo
 // require("dotenv").config({ path: "./.env.development" });
 const customer = process.env.CUSTOMER;
-console.log("🚀 ~ customer:", customer);
 
 module.exports = function (api) {
   api.cache(true);
