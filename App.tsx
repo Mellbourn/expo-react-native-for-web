@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View } from "react-native";
 import { memo, useCallback, useMemo, useState } from "react";
 import { Suffix } from "./Suffix";
+import { customer } from "./constants";
 
 export default function App() {
   const [state, setState] = useState(0);
@@ -23,6 +24,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Klas Open up App.tsx to start working on your app!</Text>
+      <Text>Customer: {customer}</Text>
       <StatusBar style="auto" />
       <Button
         onPress={handleIncrementClick}
