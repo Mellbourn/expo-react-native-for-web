@@ -1,8 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View } from "react-native";
-import { memo, useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
+import { Auth0Provider } from "@auth0/auth0-react";
 import { Suffix } from "./Suffix";
 import { customer } from "./src/constants";
+import { LoginButton } from "./src/LoginButton";
+import { domain, clientId } from "./src/auth_config.json";
 
 export default function App() {
   const [state, setState] = useState(0);
@@ -22,18 +25,27 @@ export default function App() {
   console.log("Index rendered");
 
   return (
-    <View style={styles.container}>
-      <Text>Klas Open up App.tsx to start working on your app!</Text>
-      <Text>Customer: {customer}</Text>
-      <StatusBar style="auto" />
-      <Button
-        onPress={handleIncrementClick}
-        title="Increment state in main method"
-      />
-      <Text>{state}</Text>
-      <Text>{subComponentState}</Text>
-      <Suffix options={options} handleClick={handleSubComponentClick} />
-    </View>
+    <Auth0Provider
+      domain={domain}
+      clientId={clientId}
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
+    >
+      <View style={styles.container}>
+        <LoginButton />
+        <Text>Klas Open up App.tsx to start working on your app!</Text>
+        <Text>Customer: {customer}</Text>
+        <StatusBar style="auto" />
+        <Button
+          onPress={handleIncrementClick}
+          title="Increment state in main method"
+        />
+        <Text>{state}</Text>
+        <Text>{subComponentState}</Text>
+        <Suffix options={options} handleClick={handleSubComponentClick} />
+      </View>
+    </Auth0Provider>
   );
 }
 
